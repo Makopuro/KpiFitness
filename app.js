@@ -1,7 +1,6 @@
 // Obtener referencias a los elementos del DOM
 const athleteForm = document.getElementById('athleteForm');
 const metricsCanvas = document.getElementById('metricsChart');
-const metricsChart = metricsCanvas.getContext('2d');
 
 // Variables globales
 let advancedStandards; // Para usar los valores en diferentes funciones
@@ -12,7 +11,7 @@ athleteForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Evitar el envío del formulario
 
   // Obtener los valores ingresados por el usuario
-  const athleteName = document.getElementById('athleteName').value;
+  const athleteName = document.getElementById('athleteName').value.trim();
   const squat = parseFloat(document.getElementById('squat').value);
   const benchPress = parseFloat(document.getElementById('benchPress').value);
   const deadlift = parseFloat(document.getElementById('deadlift').value);
@@ -22,14 +21,19 @@ athleteForm.addEventListener('submit', function(event) {
   const bodyWeight = parseFloat(document.getElementById('bodyWeight').value);
   const gender = document.getElementById('gender').value;
 
-  // Verificar que bodyWeight es un número válido
-  if (isNaN(bodyWeight) || bodyWeight <= 0) {
-    alert('Por favor, ingresa un peso corporal válido.');
+  // Validación de campos requeridos
+  if (!athleteName || isNaN(bodyWeight) || bodyWeight <= 0 || !gender ||
+      isNaN(squat) || isNaN(benchPress) || isNaN(deadlift) ||
+      isNaN(powerClean) || isNaN(militaryPress) || isNaN(snatch)) {
+    alert('Por favor, completa todos los campos con valores válidos.');
     return;
   }
 
   // Obtener los estándares avanzados según el género y el peso corporal
   advancedStandards = getAdvancedStandards(gender, bodyWeight);
+
+  // Guardar los estándares de KPIs en localStorage
+  saveStandards(advancedStandards);
 
   // Calcular los porcentajes del atleta respecto a los estándares avanzados
   athletePercentages = {
@@ -71,6 +75,11 @@ function getAdvancedStandards(gender, bodyWeight) {
       snatch: 0.8          // 0.8 x peso corporal
     };
   }
+}
+
+// Función para guardar los estándares de KPIs en localStorage
+function saveStandards(standards) {
+  localStorage.setItem('kpiStandards', JSON.stringify(standards));
 }
 
 // Función para crear el gráfico
@@ -155,7 +164,7 @@ function createChart(athletePercentages, athleteName, bodyWeight) {
       plugins: {
         title: {
           display: true,
-          text: `Stats de ${athleteName}`,
+          text: `Desempeño de ${athleteName}`,
           font: {
             size: 18
           },

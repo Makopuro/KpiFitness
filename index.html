@@ -10,11 +10,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>Fitmonguers Performanse Sports</h1>
+    <h1>Fitmonguers Sport Performanse</h1>
 
     <!-- Formulario para ingresar datos del atleta -->
     <form id="athleteForm">
-      <h2>Rellenar con tus P-Erres</h2>
+      <h2>Rellena con tus PRs</h2>
 
       <!-- Nombre del atleta -->
       <label for="athleteName">Nombre:</label>
@@ -27,6 +27,7 @@
       <!-- Género -->
       <label for="gender">Género:</label>
       <select id="gender" name="gender" required>
+        <option value="" disabled selected>Selecciona tu género</option>
         <option value="male">Hombre</option>
         <option value="female">Mujer</option>
       </select><br><br>
@@ -35,19 +36,21 @@
       <label for="squat">Sentadilla (kg):</label>
       <input type="number" id="squat" name="squat" required><br><br>
 
+      <!-- Press de Banca -->
       <label for="benchPress">Press de Banca (kg):</label>
       <input type="number" id="benchPress" name="benchPress" required><br><br>
 
+      <!-- Nuevas Métricas -->
       <label for="deadlift">Peso Muerto (kg):</label>
       <input type="number" id="deadlift" name="deadlift" required><br><br>
 
-      <label for="powerClean">Squat Clean (kg):</label>
+      <label for="powerClean">Power Clean (kg):</label>
       <input type="number" id="powerClean" name="powerClean" required><br><br>
 
       <label for="militaryPress">Press Militar (kg):</label>
       <input type="number" id="militaryPress" name="militaryPress" required><br><br>
 
-      <label for="snatch">Snatch (kg):</label>
+      <label for="snatch">Arranque (kg):</label>
       <input type="number" id="snatch" name="snatch" required><br><br>
 
       <!-- Botón para generar el gráfico -->
@@ -55,7 +58,7 @@
     </form>
 
     <!-- Canvas para el gráfico -->
-    <h2>Estás como una bestia!...o no</h2>
+    <h2>Estás relativamente fuerte Fitmonguer</h2>
     <div class="chart-container">
       <canvas id="metricsChart"></canvas>
     </div>

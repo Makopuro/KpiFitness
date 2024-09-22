@@ -9,7 +9,7 @@ body {
 
 /* Contenedor principal */
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -27,24 +27,26 @@ form {
   border: 1px solid #cccccc;
   padding: 15px;
   border-radius: 5px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 label {
-  display: inline-block;
-  width: 180px;
-  text-align: right;
-  vertical-align: top;
-  padding-top: 5px;
+  display: block;
+  margin-top: 10px;
   color: #333333;
 }
 
 input, select {
-  width: 55%;
-  padding: 5px;
-  margin-bottom: 8px;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   background-color: #ffffff;
   border: 1px solid #cccccc;
+  border-radius: 3px;
   color: #333333;
+  box-sizing: border-box;
 }
 
 input::placeholder {
@@ -53,13 +55,14 @@ input::placeholder {
 
 button {
   display: block;
-  margin: 15px auto;
-  padding: 8px 16px;
+  width: 100%;
+  padding: 10px;
   background-color: #10a37f;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
@@ -68,30 +71,39 @@ button:hover {
 
 /* Chart */
 .chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  overflow: visible; /* Permitir que las etiquetas sobresalgan */
   width: 100%;
-  max-width: 600px; /* Puedes ajustar este valor según tus necesidades */
-  margin: 0 auto;
 }
 
 canvas {
   width: 100% !important;
+  max-width: 500px;
   height: auto !important;
 }
 
-
 /* Responsive */
 @media (max-width: 600px) {
-  label, input, select {
-    display: block;
-    width: 100%;
-    text-align: left;
+  .container {
+    padding: 10px;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  input, select, button {
+    font-size: 16px;
   }
 
   label {
-    margin-top: 10px;
+    font-size: 14px;
   }
 
-  input, select {
-    margin-bottom: 15px;
+  h1, h2 {
+    font-size: 24px;
   }
 }
