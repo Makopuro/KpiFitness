@@ -155,7 +155,7 @@ function createChart(athletePercentages, athleteName, bodyWeight) {
       plugins: {
         title: {
           display: true,
-          text: `Desempeño de ${athleteName}`,
+          text: `Stats de ${athleteName}`,
           font: {
             size: 18
           },
