@@ -1,0 +1,97 @@
+/* Estilos generales */
+body {
+  background-color: #f0f0f0; /* Tono más claro */
+  color: #333333; /* Texto oscuro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Encabezados */
+h1, h2 {
+  text-align: center;
+  font-weight: normal;
+  color: #333333;
+}
+
+/* Formulario */
+form {
+  background-color: #ffffff; /* Fondo blanco */
+  border: 1px solid #cccccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+label {
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  vertical-align: top;
+  padding-top: 5px;
+  color: #333333;
+}
+
+input, select {
+  width: 55%;
+  padding: 5px;
+  margin-bottom: 8px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  color: #333333;
+}
+
+input::placeholder {
+  color: #999999;
+}
+
+button {
+  display: block;
+  margin: 15px auto;
+  padding: 8px 16px;
+  background-color: #10a37f;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0e8c6e;
+}
+
+/* Chart */
+.chart-container {
+  width: 100%;
+  max-width: 600px; /* Puedes ajustar este valor según tus necesidades */
+  margin: 0 auto;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  label, input, select {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  input, select {
+    margin-bottom: 15px;
+  }
+}
