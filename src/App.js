@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AthleteForm from "./components/AthleteForm";
+import MetricsChart from "./components/MetricsChart";
+import Auth from "./components/Auth";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
+  const [athleteName, setAthleteName] = useState("");
+  const [user, setUser] = useState(null);
+
+  // Verificar si el usuario está autenticado
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Aplicación de Métricas Deportivas</h1>
       </header>
+      {user ? (
+        <>
+          <AthleteForm />
+          <div style={{ marginTop: "20px" }}>
+            <input
+              type="text"
+              placeholder="Nombre del atleta"
+              value={athleteName}
+              onChange={(e) => setAthleteName(e.target.value)}
+            />
+            <MetricsChart athleteName={athleteName} />
+          </div>
+        </>
+      ) : (
+        <Auth />
+      )}
     </div>
   );
 }
