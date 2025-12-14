@@ -6,7 +6,7 @@ import AthleteForm from "./components/AthleteForm";
 import MetricsChart from "./components/MetricsChart";
 import Auth from "./components/Auth";
 import { auth } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import "./App.css"; // Importa una hoja de estilos para los estilos generales
 
 function App() {
@@ -23,6 +23,15 @@ function App() {
     return () => unsubscribe();
   }, []);
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setAthleteName(""); // Limpiar el nombre del atleta al cerrar sesión
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error);
+    }
+  };
+
   if (loading) {
     // Mostrar un mensaje de carga mientras se verifica el estado del usuario
     return <div className="loading">Cargando...</div>;
@@ -32,11 +41,23 @@ function App() {
     <div className="App">
       <header>
         <h1>Aplicación de Métricas Deportivas</h1>
+        {user && (
+          <div className="user-info">
+            <span className="user-email">{user.email}</span>
+            <button onClick={handleLogout} className="logout-btn">
+              Cerrar Sesión
+            </button>
+          </div>
+        )}
       </header>
       {user ? (
-        <>
-          <AthleteForm />
-          <div style={{ marginTop: "20px" }}>
+        <div className="main-content">
+          <section className="form-section">
+            <h2>Registrar Métricas</h2>
+            <AthleteForm />
+          </section>
+          <section className="chart-section">
+            <h2>Visualizar Métricas</h2>
             <input
               type="text"
               placeholder="Nombre del atleta"
@@ -45,8 +66,8 @@ function App() {
               className="athlete-input"
             />
             <MetricsChart athleteName={athleteName} />
-          </div>
-        </>
+          </section>
+        </div>
       ) : (
         <Auth />
       )}
