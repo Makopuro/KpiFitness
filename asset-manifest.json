@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/KpiFitness/static/css/main.87fd027b.css",
-    "main.js": "/KpiFitness/static/js/main.13a3db28.js",
+    "main.css": "/KpiFitness/static/css/main.b6fd17a4.css",
+    "main.js": "/KpiFitness/static/js/main.d7a84433.js",
     "index.html": "/KpiFitness/index.html",
-    "main.87fd027b.css.map": "/KpiFitness/static/css/main.87fd027b.css.map",
-    "main.13a3db28.js.map": "/KpiFitness/static/js/main.13a3db28.js.map"
+    "main.b6fd17a4.css.map": "/KpiFitness/static/css/main.b6fd17a4.css.map",
+    "main.d7a84433.js.map": "/KpiFitness/static/js/main.d7a84433.js.map"
   },
   "entrypoints": [
-    "static/css/main.87fd027b.css",
-    "static/js/main.13a3db28.js"
+    "static/css/main.b6fd17a4.css",
+    "static/js/main.d7a84433.js"
   ]
 }
