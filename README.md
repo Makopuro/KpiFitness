@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# KpiFitness - Aplicación de Métricas Deportivas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación web moderna para el seguimiento y visualización de métricas de rendimiento deportivo de atletas.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- **Autenticación de usuarios** con Firebase Authentication
+- **Registro completo de métricas** de levantamientos:
+  - Sentadilla (Squat)
+  - Press de Banca (Bench Press)
+  - Peso Muerto (Deadlift)
+  - Power Clean
+  - Press Militar (Military Press)
+  - Arranque (Snatch)
+- **Visualización interactiva** mediante gráficos radar (Chart.js)
+- **Base de datos en tiempo real** con Firebase Firestore
+- **Diseño responsive** que se adapta a dispositivos móviles y desktop
+- **Interfaz moderna** con gradientes y animaciones suaves
+- **Validaciones de entrada** para garantizar datos correctos
+- **Manejo de errores** con mensajes descriptivos en español
+
+## Tecnologías Utilizadas
+
+- **React** 18.3.1 - Framework de JavaScript
+- **Firebase** 11.0.1 - Backend as a Service (Authentication + Firestore)
+- **Chart.js** 4.4.6 + react-chartjs-2 - Visualización de datos
+- **Create React App** - Configuración y herramientas de desarrollo
+
+## Instalación
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/Makopuro/KpiFitness.git
+cd KpiFitness
+```
+
+2. Instala las dependencias:
+```bash
+npm install
+```
+
+3. Inicia la aplicación en modo desarrollo:
+```bash
+npm start
+```
+
+La aplicación se abrirá en [http://localhost:3000](http://localhost:3000)
+
+## Scripts Disponibles
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ejecuta la aplicación en modo desarrollo.
 
 ### `npm run build`
+Construye la aplicación para producción en la carpeta `build`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm test`
+Ejecuta el corredor de pruebas en modo interactivo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run deploy`
+Despliega la aplicación a GitHub Pages.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Estructura del Proyecto
 
-### `npm run eject`
+```
+KpiFitness/
+├── public/              # Archivos públicos estáticos
+├── src/
+│   ├── components/      # Componentes React
+│   │   ├── Auth.js           # Autenticación (login/registro)
+│   │   ├── AthleteForm.js    # Formulario de métricas
+│   │   └── MetricsChart.js   # Gráfico de visualización
+│   ├── styles/          # Archivos CSS
+│   │   └── MetricsChart.css
+│   ├── App.js           # Componente principal
+│   ├── App.css          # Estilos globales
+│   ├── firebase.js      # Configuración de Firebase
+│   └── index.js         # Punto de entrada
+└── package.json
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Uso
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Registro/Inicio de sesión**: Crea una cuenta o inicia sesión con tu email
+2. **Registrar métricas**: Completa el formulario con los datos del atleta y sus levantamientos
+3. **Visualizar datos**: Ingresa el nombre de un atleta para ver sus métricas en el gráfico radar
+4. **Cerrar sesión**: Usa el botón "Cerrar Sesión" en el header
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Mejoras Implementadas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Formulario completo con todos los campos de levantamiento
+- Consultas optimizadas a Firestore con filtros
+- Registro de componentes de Chart.js para evitar errores
+- Botón de logout con información del usuario
+- Validaciones de entrada (min/max/step)
+- Mensajes de error descriptivos en español
+- Estados de carga (loading) en operaciones asíncronas
+- Diseño responsive con CSS Grid
+- Gradiente de fondo moderno
+- Animaciones en botones y transiciones suaves
+- Limpieza automática del formulario después de guardar
 
-## Learn More
+## Despliegue
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+La aplicación está configurada para desplegarse en GitHub Pages:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run deploy
+```
 
-### Code Splitting
+## Próximas Mejoras Sugeridas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [ ] Historial de progreso temporal del atleta
+- [ ] Comparación entre múltiples atletas
+- [ ] Exportación de datos (PDF/Excel)
+- [ ] Cálculo de índices de fuerza relativa (peso levantado / peso corporal)
+- [ ] Dashboard con estadísticas agregadas
+- [ ] Edición y eliminación de métricas existentes
+- [ ] Búsqueda avanzada y filtrado de atletas
+- [ ] Tests unitarios y de integración
 
-### Analyzing the Bundle Size
+## Licencia
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto fue creado con Create React App.
