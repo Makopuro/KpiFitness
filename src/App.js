@@ -4,10 +4,10 @@
 import React, { useState, useEffect } from "react";
 import AthleteForm from "./components/AthleteForm";
 import MetricsChart from "./components/MetricsChart";
-import Auth from "./components/Auth";
+import Auth from "./components/auth";
 import { auth } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import "./App.css"; // Importa una hoja de estilos para los estilos generales
+import "./app.css"; // Importa una hoja de estilos para los estilos generales
 
 function App() {
   const [athleteName, setAthleteName] = useState("");
